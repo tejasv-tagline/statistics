@@ -1,0 +1,9 @@
+::ng-deep .actions {
+  ul {
+    display: flex;
+    list-style: none;
+    li {
+      margin-right: 1rem;
+    }
+  }
+}

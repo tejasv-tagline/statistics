@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="header d-flex justify-content-between">
+    <p>Revenue</p>
+    <div class="actions">
+      <ul>
+        <li>All</li>
+        <li>1M</li>
+        <li>6M</li>
+        <li>1Y</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [dataLabels]="chartOptions.dataLabels"
+      [plotOptions]="chartOptions.plotOptions"
+      [yaxis]="chartOptions.yaxis"
+      [legend]="chartOptions.legend"
+      [fill]="chartOptions.fill"
+      [stroke]="chartOptions.stroke"
+      [tooltip]="chartOptions.tooltip"
+      [xaxis]="chartOptions.xaxis"
+    ></apx-chart>
+  </div>
+</div>
