@@ -1,7 +1,7 @@
 <div class="card rounded shadow p-3" style="border: none">
   <div class="card-header">
     <div class="d-flex justify-content-between">
-      <h5 class="h5 p-2">Revenue Chart</h5>
+      <h5 class="h5 p-2">Area Charts</h5>
       <div class="p-2">
         <button
           (click)="updateOptions('1m')"
@@ -22,6 +22,12 @@
           1Y
         </button>
         <button
+          (click)="updateOptions('1yd')"
+          [class.active]="activeOptionButton == '1yd'"
+        >
+          1YD
+        </button>
+        <button
           (click)="updateOptions('all')"
           [class.active]="activeOptionButton == 'all'"
         >
@@ -31,19 +37,19 @@
     </div>
   </div>
   <div class="card-content">
-    <div id="chart">
-      <apx-chart
-        #chart
-        [series]="chartOptions.series"
-        [chart]="chartOptions.chart"
-        [dataLabels]="chartOptions.dataLabels"
-        [plotOptions]="chartOptions.plotOptions"
-        [yaxis]="chartOptions.yaxis"
-        [legend]="chartOptions.legend"
-        [colors]="chartOptions.colors"
-        [tooltip]="chartOptions.tooltip"
-        [xaxis]="chartOptions.xaxis"
-      ></apx-chart>
-    </div>
+    <apx-chart
+      #chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [colors]="chartOptions.colors"
+      [yaxis]="chartOptions.yaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [markers]="chartOptions.markers"
+      [stroke]="chartOptions.stroke"
+      [grid]="chartOptions.grid"
+      [xaxis]="chartOptions.xaxis"
+      [tooltip]="chartOptions.tooltip"
+      [annotations]="chartOptions.annotations"
+    ></apx-chart>
   </div>
 </div>

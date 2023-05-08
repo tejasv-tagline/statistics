@@ -1,35 +1,26 @@
 import { Component, ViewChild } from '@angular/core';
-
+import { ChartComponent } from "ng-apexcharts";
 import {
   ApexNonAxisChartSeries,
   ApexResponsive,
-  ApexChart,
-  ApexFill,
-  ApexDataLabels,
-  ApexLegend,
-  ChartComponent,
-} from 'ng-apexcharts';
+  ApexChart
+} from "ng-apexcharts";
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
   chart: ApexChart;
   responsive: ApexResponsive[];
   labels: any;
-  fill: ApexFill;
-  legend: ApexLegend;
-  dataLabels: ApexDataLabels;
 };
 
 @Component({
-  selector: 'app-gender-chart',
-  templateUrl: './gender-chart.component.html',
-  styleUrls: ['./gender-chart.component.scss'],
+  selector: 'app-pie-donuts',
+  templateUrl: './pie-donuts.component.html',
+  styleUrls: ['./pie-donuts.component.scss']
 })
-export class GenderChartComponent {
-
-  @ViewChild('chart') chart!: ChartComponent;
+export class PieDonutsComponent {
+  @ViewChild("chart") chart!: ChartComponent;
   public chartOptions!: Partial<ChartOptions> | any;
-
   private colors: any = {};
 
 
@@ -38,46 +29,32 @@ export class GenderChartComponent {
     this.colors.secondary = getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim();
     this.colors.tertiary = getComputedStyle(document.documentElement).getPropertyValue('--tertiary').trim();
 
-    this.initChart();
+    this.initChart()
   }
 
   private initChart() {
     this.chartOptions = {
-      series: [60, 35, 5],
+      series: [33, 33, 33.5],
       chart: {
-        width: 552,
-        height: 650,
-        type: 'donut',
+        width: 600,
+        type: "pie"
       },
-      // colors: [
-      //   '#71c9ce',
-      //   '#a6e3e9',
-      //   '#cbf1f5',
-      //   '#e3fdfd'
-      // ],
+      // colors: ['#71c9ce', '#a6e3e9', '#cbf1f5'],
       colors: [this.colors.primary, this.colors.secondary, this.colors.tertiary],
-      dataLabels: {
-        enabled: true,
-      },
-      labels: ['Male', 'Female', 'Other'],
-      legend: {
-        formatter: function (val: any, opts: any) {
-          return val + ' - ' + opts.w.globals.series[opts.seriesIndex];
-        },
-      },
+      labels: ["Team A", "Team B", "Team C"],
       responsive: [
         {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200,
+              width: 200
             },
             legend: {
-              position: 'bottom',
-            },
-          },
-        },
-      ],
+              position: "bottom"
+            }
+          }
+        }
+      ]
     };
   }
 }
