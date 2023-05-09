@@ -9,6 +9,10 @@ const routes: Routes = [
         (m) => m.DashboardModule
       ),
   },
+  {
+    path: 'dashboard-chartjs',
+    loadChildren: () => import('src/app/features/dashboard-chartjs/dashboard-chartjs.module').then((m) => m.DashboardChartjsModule)
+  }
 ];
 
 @NgModule({
